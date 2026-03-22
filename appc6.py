@@ -232,7 +232,7 @@ if st.session_state["authentication_status"]:
             if user_role == 'admin':
                 st.info(f"🔓 Modo Administrador: Editando acta registrada de {cat}.")
             elif user_role == 'registrador1':
-                if intentos_previos >= 2:
+                if intentos_previos >= 3:
                     deshabilitar_campos = True
                     st.error(f"🔒 Límite alcanzado (0 intentos restantes). Acta de {cat} bloqueada en solo lectura.")
                 else:
@@ -318,7 +318,7 @@ if st.session_state["authentication_status"]:
                     sheet = client.open_by_url(url).sheet1
                     
                     # Ahora permitimos que registrador1 también sobrescriba la fila (si tiene intentos)
-                    if bloqueo and (user_role == 'admin' or (user_role == 'registrador1' and intentos_previos < 2)):
+                    if bloqueo and (user_role == 'admin' or (user_role == 'registrador1' and intentos_previos < 3)):
                         df_db = cargar_votos_gsheets()
                         df_db['Mesa'] = df_db['Mesa'].astype(str)
                         
