@@ -1,3 +1,14 @@
 votos_detallados.csv
 __pycache__/
 .streamlit/
+.streamlit/secrets.toml
+.streamlit/config.toml
+fuente2103.txt
+votos_C6-TecnicoAyacucho.csv
+# Base de datos local y fotos
+*.csv
+fotosactas/
+# Python
+.venv/
+subnacionales2026-c5b7395343b2.json
+
